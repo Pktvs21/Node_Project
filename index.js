@@ -2,10 +2,15 @@ const express =require('express');
 const app = express();
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
+const db = require('./config/moongose');
 
+app.use(express.static('./assets'));
 
 // Use expressLayouts
 app.use(expressLayouts);
+// extract styles and scripts from sub pages into layouts
+app.set('layout extractStyles',true)
+app.set('layout extractScripts',true)
 
 
 // use express router
